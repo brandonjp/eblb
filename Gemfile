@@ -1,16 +1,21 @@
 require 'rbconfig'
 HOST_OS = RbConfig::CONFIG['host_os']
 source 'http://rubygems.org'
+
 gem 'rails', '3.1.3'
+
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
+
 gem 'jquery-rails'
-if HOST_OS =~ /linux/i
-  gem 'therubyracer', '>= 0.9.8'
-end
+
+# if HOST_OS =~ /linux/i
+#   gem 'therubyracer', '>= 0.9.8'
+# end
+
 gem "haml", ">= 3.1.2"
 gem "haml-rails", ">= 0.3.4", :group => :development
 gem "rspec-rails", ">= 2.8.0.rc1", :group => [:development, :test]
@@ -27,15 +32,16 @@ group :production do
   gem 'rb-inotify'
 end
 
-case HOST_OS
-  when /darwin/i
-    gem 'rb-fsevent', :group => :development
-    gem 'growl', :group => :development
-  when /mswin|windows/i
-    gem 'rb-fchange', :group => :development
-    gem 'win32console', :group => :development
-    gem 'rb-notifu', :group => :development
-end
+# case HOST_OS
+#   when /darwin/i
+#     gem 'rb-fsevent', :group => :development
+#     gem 'growl', :group => :development
+#   when /mswin|windows/i
+#     gem 'rb-fchange', :group => :development
+#     gem 'win32console', :group => :development
+#     gem 'rb-notifu', :group => :development
+# end
+
 gem "guard-bundler", ">= 0.1.3", :group => :development
 gem "guard-rails", ">= 0.0.3", :group => :development
 gem "guard-livereload", ">= 0.3.0", :group => :development
@@ -46,5 +52,6 @@ gem "mongoid", ">= 2.3.3"
 gem "devise", ">= 1.5.0"
 gem "twitter-bootstrap-rails"
 gem "rails-footnotes", ">= 3.7", :group => :development
+
 gem "heroku"
 gem "thin"
