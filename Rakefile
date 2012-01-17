@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Evbryn::Application.load_tasks
+Eblb::Application.load_tasks

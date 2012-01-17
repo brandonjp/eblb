@@ -1,4 +1,7 @@
-Evbryn::Application.routes.draw do
+Eblb::Application.routes.draw do
+  resources :reasons
+  resources :pages
+
   #get \"users\/show\"
 
   root :to => "home#index"

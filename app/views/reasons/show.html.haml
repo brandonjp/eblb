@@ -1,0 +1,7 @@
+%p#notice= notice
+
+%p= @reason.text
+
+= link_to 'Edit', edit_reason_path(@reason)
+\|
+= link_to 'Back', reasons_path

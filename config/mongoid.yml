@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: evbryn_development
+  database: eblb_development
 
 test:
   host: localhost
-  database: evbryn_test
+  database: eblb_test
 
 # set these environment variables on your prod server
 production:
