@@ -1,6 +1,11 @@
 %p#notice= notice
 
-%p= @page.text
+%p= "Name: #{@page.name}"
+%p= "Slug: #{@page.slug}"
+
+%ul
+- for @page.reasons do |reason|
+  %li= reason.text
 
 = link_to 'Edit', edit_page_path(@page)
 \|

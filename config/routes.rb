@@ -1,4 +1,5 @@
 Eblb::Application.routes.draw do
+
   resources :reasons
   resources :pages
 

@@ -3,5 +3,8 @@ class Reason
 
   field :text
   validates_presence_of :text
+  
+  belongs_to :user
+  embedded_in :page
 
 end

@@ -4,14 +4,16 @@
 
 %table
   %tr
-    %th pages
+    %th page.name
+    %th page.slug
     %th
     %th
     %th
 
   - @pages.each do |page|
     %tr
-      %td= page.text
+      %td= page.name
+      %td= page.slug
       %td= link_to 'Show', page
       %td= link_to 'Edit', edit_page_path(page)
       %td= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete
