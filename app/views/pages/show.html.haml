@@ -1,36 +1,37 @@
-%p#notice= notice
-
 %h1= "Everybody Loves #{@page.name}"
 %h2= "everybodylov.es/#{@page.slug}"
 
-%p= "Here's what's up... this page shows comments people have left about #{@page.name}.  To leave a comment enter it below, along with your name and email address."
+%p
+  = "Here's what's up... this page shows comments people have left about #{@page.name}.  To leave a comment, "
+  -if user_signed_in?
+    = link_to('enter it below.', '#')
+  -else
+    = link_to('sign in', new_user_session_path)
+    or
+    = link_to('create an account.', new_user_registration_path)
 
-= @page.reasons.to_a
 
-%h3 here's why
-%ul
-  - @page.reasons.each do |reason|
-    %li
-      %span.title= reason.title
-      %span.author= reason.author
+-if @page.reasons.count > 0
+  %h3 here's why
+  %ul
+    - @page.reasons.each do |reason|
+      %li
+        %span.title= reason.title
+        %span.author= reason.author
 
-%h4 things to do
-%ul
-  %li= link_to 'Edit page settings', edit_page_path(@page)
-  %li= link_to 'Back to ALL PAGES', pages_path
-  %li invite people to give leave comments
-  
-= form_for([@page, @page.reasons.build]) do |f|
-  -if @page.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@reason.errors.count, "error")} prohibited this reason from being saved:"
-      %ul
-        - @reason.errors.full_messages.each do |msg|
-          %li= msg
-  %p
-    = f.label :title
-    %br/
-    = f.text_field :title
+-if user_signed_in?  
+
+  = form_for([@page, @page.reasons.build]) do |f|
+    -if @page.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@reason.errors.count, "error")} prohibited this reason from being saved:"
+        %ul
+          - @reason.errors.full_messages.each do |msg|
+            %li= msg
+    %p
+      = f.label :title
+      %br/
+      = f.text_field :title
     
-  .actions
-    = f.submit 'Save'
+    .actions
+      = f.submit 'Save'

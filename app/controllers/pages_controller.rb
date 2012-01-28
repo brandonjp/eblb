@@ -16,8 +16,11 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @page = Page.find_by_slug(params[:id])
-#    @author = User.find()
+    if Page.find_by_slug(params[:id]).nil?
+      @page = Page.find_by_slug("bryn")
+    else
+      @page = Page.find_by_slug(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

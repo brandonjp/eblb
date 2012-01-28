@@ -6,7 +6,7 @@ Eblb::Application.routes.draw do
 
   #get \"users\/show\"
 
-  root :to => "home#index"
+  root :to => "pages#show", :id => "bryn"
 
   devise_for :users
   resources :users, :only => :show
