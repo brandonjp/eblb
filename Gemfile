@@ -55,3 +55,5 @@ gem "rails-footnotes", ">= 3.7", :group => :development
 
 gem "heroku"
 gem "thin"
+
+gem "mongoid_slug"

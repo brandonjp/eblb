@@ -7,13 +7,15 @@
           %li= msg
 
   %p
-    = f.label :name
+    = f.label :name, "Everybody Loves "
     %br/
     = f.text_field :name
     %p
-    = f.label :slug
+    = f.label :slug, "everybodylov.es/"
     %br/
     = f.text_field :slug
+  
+  = f.hidden_field :user_id
   
   .actions
     = f.submit 'Save'

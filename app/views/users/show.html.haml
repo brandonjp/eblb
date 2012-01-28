@@ -2,3 +2,8 @@
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+
+%h1 stuff to do
+
+%ul
+  %li= link_to "Create a new lovepage", new_page_path

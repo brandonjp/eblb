@@ -1,7 +1,8 @@
 Eblb::Application.routes.draw do
 
-  resources :reasons
-  resources :pages
+  resources :pages do
+    resources :reasons
+  end
 
   #get \"users\/show\"
 
@@ -10,6 +11,7 @@ Eblb::Application.routes.draw do
   devise_for :users
   resources :users, :only => :show
 
+  get "/:id" => "pages#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

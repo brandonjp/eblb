@@ -1,12 +1,36 @@
 %p#notice= notice
 
-%p= "Name: #{@page.name}"
-%p= "Slug: #{@page.slug}"
+%h1= "Everybody Loves #{@page.name}"
+%h2= "everybodylov.es/#{@page.slug}"
 
+%p= "Here's what's up... this page shows comments people have left about #{@page.name}.  To leave a comment enter it below, along with your name and email address."
+
+= @page.reasons.to_a
+
+%h3 here's why
 %ul
-- for @page.reasons do |reason|
-  %li= reason.text
+  - @page.reasons.each do |reason|
+    %li
+      %span.title= reason.title
+      %span.author= reason.author
 
-= link_to 'Edit', edit_page_path(@page)
-\|
-= link_to 'Back', pages_path
+%h4 things to do
+%ul
+  %li= link_to 'Edit page settings', edit_page_path(@page)
+  %li= link_to 'Back to ALL PAGES', pages_path
+  %li invite people to give leave comments
+  
+= form_for([@page, @page.reasons.build]) do |f|
+  -if @page.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@reason.errors.count, "error")} prohibited this reason from being saved:"
+      %ul
+        - @reason.errors.full_messages.each do |msg|
+          %li= msg
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+    
+  .actions
+    = f.submit 'Save'

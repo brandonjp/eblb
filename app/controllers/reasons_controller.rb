@@ -43,14 +43,16 @@ class ReasonsController < ApplicationController
   # POST /reasons
   # POST /reasons.json
   def create
-    @reason = Reason.new(params[:reason])
+    @page = Page.find_by_slug(params[:page_id])
+    @reason = @page.reasons.create(params[:reason])
+    @reason.user_id = current_user.id
 
     respond_to do |format|
       if @reason.save
-        format.html { redirect_to @reason, notice: 'Reason was successfully created.' }
+        format.html { redirect_to @page, notice: 'Reason was successfully created.' }
         format.json { render json: @reason, status: :created, location: @reason }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to @page, notice: 'Slight problem. Please try again.' }
         format.json { render json: @reason.errors, status: :unprocessable_entity }
       end
     end
