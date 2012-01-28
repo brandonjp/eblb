@@ -2,7 +2,10 @@
 %h2= "everybodylov.es/#{@page.slug}"
 
 %p
-  = "Here's what's up... this page shows comments people have left about #{@page.name}.  To leave a comment, "
+  = @page.description
+
+%p
+  = "Below are all the comments people have left about #{@page.name}.  To leave a comment, "
   -if user_signed_in?
     = link_to('enter it below.', '#')
   -else

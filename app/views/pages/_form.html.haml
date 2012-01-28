@@ -10,12 +10,16 @@
     = f.label :name, "Everybody Loves "
     %br/
     = f.text_field :name
-    %p
+
+  %p
     = f.label :slug, "everybodylov.es/"
     %br/
     = f.text_field :slug
   
-  = f.hidden_field :user_id
+  %p
+    = f.label :description
+    %br/
+    = f.text_field :description
   
   .actions
     = f.submit 'Save'
