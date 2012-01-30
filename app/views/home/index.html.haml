@@ -1,4 +1,17 @@
+%p Welcome to everybodylov.es.  The point here is to say nice things about a person.  It's becoming of you and good for the person.
+
+-if user_signed_in?
+  %p Get started by selecting a person to say something nice about...
+-else
+  %p 
+    First things first, you'll need quickly 
+    = link_to('sign in', new_user_session_path)
+    or
+    = link_to('create an account.', new_user_registration_path)
+
 %h3 everybodylov.es/
-%ul
-- @pages.each do |page|
-  %li #{link_to page.slug, page}
+
+-if user_signed_in?
+  %ul
+  - @pages.each do |page|
+    %li #{link_to page.slug, page}

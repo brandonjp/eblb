@@ -9,9 +9,9 @@ Eblb::Application.routes.draw do
   root :to => "home#index"
 
   devise_for :users
-  resources :users, :only => :show
+#  resources :users, :only => :show
 
-#  match "/:id" => "pages#show"
+  match ":id" => "pages#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

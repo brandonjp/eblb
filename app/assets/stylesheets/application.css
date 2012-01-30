@@ -1,3 +1,5 @@
+/* @override http://0.0.0.0:3000/assets/application.css?body=1 */
+
 /*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
@@ -27,3 +29,8 @@ header nav ul li {
   border: solid 1px #C66;
 }
 
+/* bp doing quick demo styles */
+
+header {
+	text-align: right;
+}
