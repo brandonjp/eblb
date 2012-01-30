@@ -1,0 +1,40 @@
+%h1= "Everybody Loves #{@page.name}"
+%h2= "everybodylov.es/#{@page.slug}"
+
+%p
+  = @page.description
+
+%p
+  = "Below are all the comments people have left about #{@page.name}.  To leave a comment, "
+  -if user_signed_in?
+    = link_to('enter it below.', '#')
+  -else
+    = link_to('sign in', new_user_session_path)
+    or
+    = link_to('create an account.', new_user_registration_path)
+
+
+-if @page.reasons.count > 0
+  %h3 here's why
+  %ul
+    - @page.reasons.each do |reason|
+      %li
+        %span.title= reason.title
+        %span.author= reason.author
+
+-if user_signed_in?  
+
+  = form_for([@page, @page.reasons.build]) do |f|
+    -if @page.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@reason.errors.count, "error")} prohibited this reason from being saved:"
+        %ul
+          - @reason.errors.full_messages.each do |msg|
+            %li= msg
+    %p
+      = f.label :title
+      %br/
+      = f.text_field :title
+    
+    .actions
+      = f.submit 'Save'

@@ -1,7 +1,7 @@
 = form_for @reason do |f|
   -if @reason.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@reason.errors.count, "error")} prohibited this reason from being saved:"
+      %h2= "#{pluralize(@reason.errors.count, "error")} prohibited this page from being saved:"
       %ul
         - @reason.errors.full_messages.each do |msg|
           %li= msg

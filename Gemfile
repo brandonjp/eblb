@@ -50,6 +50,7 @@ gem "guard-cucumber", ">= 0.6.1", :group => :development
 gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.3.3"
 gem "devise", ">= 1.5.0"
+gem "cancan"
 gem "twitter-bootstrap-rails"
 gem "rails-footnotes", ">= 3.7", :group => :development
 

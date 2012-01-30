@@ -27,6 +27,7 @@ class ReasonsController < ApplicationController
   # GET /reasons/new
   # GET /reasons/new.json
   def new
+    @page = Page.find_by_slug(params[:page_id])
     @reason = Reason.new
 
     respond_to do |format|
